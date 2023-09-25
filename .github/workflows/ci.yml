@@ -1,10 +1,10 @@
-name: CI
+name: DevOps
 on:
   push:
     branches: ['develop', 'release-*']
 jobs:
-  ci:
-    name: Test - Unit & Integration with github actions
+  devops:
+    name: Test - Unit & Integration & SonarCloud Scan & Slack WebHook
     runs-on: ubuntu-latest # macos-latest macos-11 windows-2019 ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -14,14 +14,14 @@ jobs:
           java-version: 17
       - name: Unit & Integration Tests
         run: mvn -B verify # -B: --batch-mode
-               - name: Sonar
-               if: success() # always() failure() success()
-               run: >
-                 mvn -B verify -DskipTests sonar:sonar
-                 -Dsonar.projectKey=iwvg-devops-vente-ricardo
-                 -Dsonar.organization=iwvg-devops-vente-ricardo
-                 -Dsonar.host.url=https://sonarcloud.io
-                 -Dsonar.login=$SONAR_TOKEN
-               env:
-                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Sonar
+        if: success() # always() failure() success()
+        run: >
+          mvn -B verify -DskipTests sonar:sonar
+          -Dsonar.projectKey=es.upm.miw:iwvg-devops
+          -Dsonar.organization=miw-upm-github
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.login=$SONAR_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
