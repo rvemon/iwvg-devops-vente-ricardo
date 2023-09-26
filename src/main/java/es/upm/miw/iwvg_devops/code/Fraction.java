@@ -34,7 +34,7 @@ public class Fraction {
     }
 
     public boolean isProper(){
-        return  this.decimal() < 1;
+        return this.decimal() < 1;
     }
 
     public boolean isImproper(){
@@ -47,13 +47,13 @@ public class Fraction {
 
     public Fraction multiply(Fraction fraction){
             this.setNumerator(this.getNumerator() * fraction.getNumerator());
-            this.setDenominator(this.getDenominator() * this.getDenominator());
+            this.setDenominator(this.getDenominator() * fraction.getDenominator());
             return this;
     }
 
     public Fraction divide(Fraction fraction){
         this.setNumerator(this.getNumerator() * fraction.getDenominator());
-        this.setDenominator(this.getDenominator() * this.getNumerator());
+        this.setDenominator(this.getDenominator() * fraction.getNumerator());
         return this;
     }
 
