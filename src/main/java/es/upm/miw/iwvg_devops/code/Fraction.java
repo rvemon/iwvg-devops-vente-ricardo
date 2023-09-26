@@ -45,16 +45,20 @@ public class Fraction {
         return this.decimal() == fraction.decimal();
     }
 
-    public Fraction multiply(Fraction fraction){
+    public void multiply(Fraction fraction){
             this.setNumerator(this.getNumerator() * fraction.getNumerator());
             this.setDenominator(this.getDenominator() * fraction.getDenominator());
-            return this;
     }
 
-    public Fraction divide(Fraction fraction){
+    public void divide(Fraction fraction){
         this.setNumerator(this.getNumerator() * fraction.getDenominator());
         this.setDenominator(this.getDenominator() * fraction.getNumerator());
-        return this;
+    }
+
+    public void add(Fraction fraction){
+        this.setNumerator((this.getNumerator() * fraction.getDenominator())+
+                (this.getDenominator() * fraction.getNumerator()));
+        this.setDenominator(this.getDenominator() * fraction.getDenominator());
     }
 
     @Override
