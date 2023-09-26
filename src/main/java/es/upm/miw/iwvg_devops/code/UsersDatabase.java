@@ -1,6 +1,5 @@
 package es.upm.miw.iwvg_devops.code;
 
-import java.util.List;
 import java.util.stream.Stream;
 
 public class UsersDatabase {
