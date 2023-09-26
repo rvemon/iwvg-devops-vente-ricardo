@@ -25,12 +25,12 @@ public class User {
         return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getFamilyName() {
         return this.familyName;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setFamilyName(String familyName) {
