@@ -33,6 +33,30 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
+    public boolean isProper(){
+        return  this.decimal() < 1;
+    }
+
+    public boolean isImproper(){
+        return !isProper();
+    }
+
+    public boolean isEquivalent(Fraction fraction){
+        return this.decimal() == fraction.decimal();
+    }
+
+    public Fraction multiply(Fraction fraction){
+            this.setNumerator(this.getNumerator() * fraction.getNumerator());
+            this.setDenominator(this.getDenominator() * this.getDenominator());
+            return this;
+    }
+
+    public Fraction divide(Fraction fraction){
+        this.setNumerator(this.getNumerator() * fraction.getDenominator());
+        this.setDenominator(this.getDenominator() * this.getNumerator());
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Fraction{" +
