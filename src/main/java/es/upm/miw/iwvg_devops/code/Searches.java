@@ -1,6 +1,5 @@
 package es.upm.miw.iwvg_devops.code;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
