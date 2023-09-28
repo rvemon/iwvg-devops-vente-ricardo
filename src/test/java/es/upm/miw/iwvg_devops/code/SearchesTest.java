@@ -15,4 +15,11 @@ public class SearchesTest {
                 );
     }
 
+    @Test
+    void testFindFractionMultiplicationByUserFamilyName(){
+        Fraction testFraction = new Searches().findFractionMultiplicationByUserFamilyName("López");
+        assertEquals(12, testFraction.getNumerator());
+        assertEquals(-240, testFraction.getDenominator());
+    }
+
 }
