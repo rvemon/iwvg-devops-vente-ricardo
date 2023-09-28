@@ -79,4 +79,13 @@ public class FractionTest {
         assertEquals(12,fraction.getNumerator());
         assertEquals(12,fraction.getDenominator());
     }
+
+    @Test
+    void testSubtraction(){
+        Fraction testFraction = new Fraction(1,4);
+        fraction.subtract(testFraction);
+
+        assertEquals(2,fraction.getNumerator());
+        assertEquals(8,fraction.getDenominator());
+    }
 }

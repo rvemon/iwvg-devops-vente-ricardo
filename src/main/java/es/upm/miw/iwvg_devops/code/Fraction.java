@@ -61,6 +61,12 @@ public class Fraction {
         this.setDenominator(this.getDenominator() * fraction.getDenominator());
     }
 
+    public void subtract(Fraction fraction){
+        this.setNumerator((this.getNumerator() * fraction.getDenominator())-
+                (this.getDenominator() * fraction.getNumerator()));
+        this.setDenominator(this.getDenominator() * fraction.getDenominator());
+    }
+
     @Override
     public String toString() {
         return "Fraction{" +
