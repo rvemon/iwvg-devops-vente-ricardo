@@ -1,7 +1,7 @@
 package es.upm.miw.iwvg_devops.code;
 
-import org.springframework.boot.web.server.GracefulShutdownCallback;
-
+import java.sql.PreparedStatement;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -36,6 +36,22 @@ public class Searches {
                         .filter(Objects::nonNull)
                 )
                 .map(Fraction::decimal);
+    }
+
+    public Fraction findFractionSubtractionByUserName(String name){
+        Fraction resultFraction = new Fraction(0,1);
+
+        List<Fraction> fractions = new UsersDatabase().findAll()
+                .filter(user -> name.equals(user.getName()))
+                .flatMap(user -> user.getFractions().stream()
+                        .filter(Objects::nonNull))
+                .toList();
+
+        fractions.stream().skip(1).forEach(resultFraction::add);
+
+        fractions.get(0).subtract(resultFraction);
+
+        return fractions.get(0);
     }
 
 

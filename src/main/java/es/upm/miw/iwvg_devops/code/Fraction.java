@@ -56,13 +56,13 @@ public class Fraction {
     }
 
     public void add(Fraction fraction){
-        this.setNumerator((this.getNumerator() * fraction.getDenominator())+
+        this.setNumerator((this.getNumerator() * fraction.getDenominator()) +
                 (this.getDenominator() * fraction.getNumerator()));
         this.setDenominator(this.getDenominator() * fraction.getDenominator());
     }
 
     public void subtract(Fraction fraction){
-        this.setNumerator((this.getNumerator() * fraction.getDenominator())-
+        this.setNumerator((this.getNumerator() * fraction.getDenominator()) -
                 (this.getDenominator() * fraction.getNumerator()));
         this.setDenominator(this.getDenominator() * fraction.getDenominator());
     }
