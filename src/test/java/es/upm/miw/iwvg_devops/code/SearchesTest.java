@@ -22,4 +22,10 @@ public class SearchesTest {
         assertEquals(-240, testFraction.getDenominator());
     }
 
+    @Test
+    void testFindDecimalFractionByUserName(){
+        assertEquals(List.of(2.0,-0.2,0.5,(double)4/3),
+                new Searches().findDecimalFractionByUserName("Ana").collect(Collectors.toList()));
+    }
+
 }
