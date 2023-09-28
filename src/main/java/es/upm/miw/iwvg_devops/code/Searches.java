@@ -17,4 +17,17 @@ public class Searches {
                 .findFirst()
                 .orElse(null);
     }
+
+    public Fraction findFractionMultiplicationByUserFamilyName(String familyName){
+        Fraction resultFraction = new Fraction(1,1);
+         new UsersDatabase().findAll()
+                .filter(user -> familyName.equals(user.getFamilyName()))
+                .flatMap(user -> user.getFractions().stream()
+                        .filter(Objects::nonNull)
+                ).forEach(resultFraction::multiply);
+
+        return resultFraction;
+    }
+
+
 }
